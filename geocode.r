@@ -13,8 +13,8 @@ library(ggplot2)
 #register_google(key = "numero_da_chave") ### substituir numero_da_chave pela chave da API do google https://developers.google.com/maps/documentation/geocoding/get-api-key#key
 # tem que habilitar a API https://console.developers.google.com/flows/enableapi?apiid=geocoding_backend&reusekey=true
 
-ender <- read.csv("input", stringsAsFactors = FALSE) ### input é o endereço do csv
-geo <- geocode(as.character(ender$ender))
+enderlist <- read.csv(ender, stringsAsFactors = FALSE) ### input é o endereço do csv
+geo <- geocode(as.character(enderlist$enderlist))
 
 map1 <- get_map(location = c(lon = mean(geo$lon), lat = mean(geo$lat)), zoom = 10, maptype = 'terrain') 
 
